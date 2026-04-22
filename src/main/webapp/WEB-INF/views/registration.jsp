@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign Up</title>
+    <title>StackPort · Sign up</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="${contextPath}/resources/images/icons/favicon.ico"/>
@@ -57,7 +57,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-custom navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="${contextPath}/">HKH Infotech</a>
+        <a class="navbar-brand" href="${contextPath}/">StackPort</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

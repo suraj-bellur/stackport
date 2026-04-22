@@ -1,5 +1,9 @@
+# StackPort (formerly VProfile demo)
+
+Spring MVC lab app for multi-tier deployment practice. Repository folder may still be named `vprofile-project`; the Maven artifact is **`stackport-v2.war`**.
+
 # Prerequisites
-#
+
 - JDK 17 or 21
 - Maven 3.9
 - MySQL 8

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>All Users</title>
+    <title>StackPort · Users</title>
     <!-- Stylesheets -->
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${contextPath}/resources/css/profile.css" rel="stylesheet">
@@ -86,7 +86,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="${contextPath}/index">HKH Infotech</a>
+                                <a class="navbar-brand" href="${contextPath}/index">StackPort</a>
                             </div>
                             <div class="navbar-collapse collapse">
 

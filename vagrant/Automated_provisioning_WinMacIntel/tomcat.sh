@@ -52,13 +52,13 @@ unzip apache-maven-3.9.9-bin.zip
 cp -r apache-maven-3.9.9 /usr/local/maven3.9
 export MAVEN_OPTS="-Xmx512m"
 
-git clone -b local https://github.com/hkhcoder/vprofile-project.git
-cd vprofile-project
+git clone -b local https://github.com/suraj-bellur/stackport.git
+cd stackport
 /usr/local/maven3.9/bin/mvn install
 systemctl stop tomcat
 sleep 20
 rm -rf /usr/local/tomcat/webapps/ROOT*
-cp target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
+cp target/stackport-v2.war /usr/local/tomcat/webapps/ROOT.war
 systemctl start tomcat
 sleep 20
 systemctl stop firewalld
