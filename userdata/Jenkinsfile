@@ -11,11 +11,20 @@ pipeline {
         jdk "JDK17"
         maven "MAVEN3.9"
     }
+
+    environment {
+        registryCredential = 'ecr:us-east-1:awscreds'
+        imageName = "193456333221.dkr.ecr.us-east-1.amazonaws.com/stackportappimg"
+        stackportRegistry = "https://193456333221.dkr.ecr.us-east-1.amazonaws.com"
+        cluster = "stackport-cluster"
+        service = "stackport-service"
+    }
+
     stages {
         stage("Fetch code"){
             steps{
                 echo "========Fetching code========"
-                git branch: 'atom', url: 'https://github.com/suraj-bellur/stackport.git'
+                git branch: 'docker', url: 'https://github.com/suraj-bellur/stackport.git'
             }
         }
 
@@ -94,8 +103,43 @@ pipeline {
                 )
             }
         }
-    }
 
+        stage("Build App Image") {
+            steps {
+                script {
+                    dockerImage = docker.build(imageName + ":$BUILD_NUMBER", "${WORKSPACE}/Docker-files/app/multistage/")
+                }
+            }
+        }
+
+        stage("Upload App Image") {
+            steps {
+                script {
+                    docker.withRegistry(stackportRegistry, registryCredential) {
+                        dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push("latest")
+                    }
+                }
+            }
+        }
+
+        stage("Remove Container Image from Jenkins") {
+            steps {
+                script {
+                    sh 'docker rmi -f $(docker images -a -q)'
+                }
+            }
+        }
+
+        stage('Deploy to ECS') {
+            steps {
+                withAWS(credentials: 'awscreds', region: 'us-east-1') {
+                    sh "aws ecs update-service --cluster ${cluster} --service ${service} --force-new-deployment"
+                }
+            }
+        }
+    }
+    
     post {
         always {
             echo "========Slack Notification========"

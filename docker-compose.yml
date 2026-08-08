@@ -1,31 +1,31 @@
 services:
-  stackportdb:
-    build: 
-      context: ./Docker-files/db
-    image: stackportcontainers/stackportdb
-    container_name: stackportdb
-    ports:
-      - "3306:3306"
-    volumes:
-      - stackportdbdata:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=stackportdbpass
-      - MYSQL_DATABASE=accounts
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin123
+  # stackportdb:
+  #   build: 
+  #     context: ./Docker-files/db
+  #   image: stackportcontainers/stackportdb
+  #   container_name: stackportdb
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - stackportdbdata:/var/lib/mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=stackportdbpass
+  #     - MYSQL_DATABASE=accounts
+  #     - MYSQL_USER=admin
+  #     - MYSQL_PASSWORD=admin123
 
-  stackportcache01:
-    image: memcached
-    ports:
-      - "11211:11211"
+  # stackportcache01:
+  #   image: memcached
+  #   ports:
+  #     - "11211:11211"
 
-  stackportmq01:
-    image: rabbitmq
-    ports:
-      - "5672:5672"
-    environment:
-      - RABBITMQ_DEFAULT_USER=test
-      - RABBITMQ_DEFAULT_PASS=test
+  # stackportmq01:
+  #   image: rabbitmq
+  #   ports:
+  #     - "5672:5672"
+  #   environment:
+  #     - RABBITMQ_DEFAULT_USER=test
+  #     - RABBITMQ_DEFAULT_PASS=test
 
   stackportapp:
     build: 
@@ -38,15 +38,15 @@ services:
     volumes:
       - stackportappdata:/usr/local/tomcat/webapps
     
-  stackportweb:
-    build: 
-      context: ./Docker-files/web
-    image: stackportcontainers/stackportweb
-    container_name: stackportweb
-    ports:
-      - "80:80"
+  # stackportweb:
+  #   build: 
+  #     context: ./Docker-files/web
+  #   image: stackportcontainers/stackportweb
+  #   container_name: stackportweb
+  #   ports:
+  #     - "80:80"
 
 volumes:
-   stackportdbdata: {}
+   # stackportdbdata: {}
    stackportappdata: {}
   
