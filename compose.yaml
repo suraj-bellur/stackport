@@ -1,7 +1,8 @@
 services:
   stackportdb:
-    build:
-      context: ./Docker-files/db
+#    if you want to build the image from Dockerfile, uncomment the below lines and comment the image line
+#    build:
+#      context: ./Docker-files/db
     image: surajbellur/stackport-db
     container_name: stackport-db
     ports:
@@ -30,8 +31,9 @@ services:
       RABBITMQ_DEFAULT_PASS: test
 
   stackportapp:
-    build:
-      context: ./Docker-files/app
+#    if you want to build the image from Dockerfile, uncomment the below lines and comment the image line
+#    build:
+#      context: ./Docker-files/app
     image: surajbellur/stackport-app
     container_name: stackport-app
     ports:
@@ -40,8 +42,9 @@ services:
       - stackport-app-data:/usr/local/tomcat/webapps
 
   stackportweb:
-    build:
-      context: ./Docker-files/web
+#    if you want to build the image from Dockerfile, uncomment the below lines and comment the image line
+#    build:
+#      context: ./Docker-files/web
     image: surajbellur/stackport-web
     container_name: stackport-web
     ports:
