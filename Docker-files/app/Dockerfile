@@ -1,11 +1,12 @@
-FROM tomcat:10-jdk21
-LABEL "Project"="StackPort"
-LABEL "Author"="Suraj"
+FROM maven:3.9.9-eclipse-temurin-21-jammy AS BUILD_IMAGE
+RUN git clone https://github.com/suraj-bellur/stackport.git
+RUN cd stackport && git checkout containers && mvn install
 
+FROM tomcat:10-jdk21
+LABEL "Project"="Stackport"
+LABEL "Author"="Suraj"
 RUN rm -rf /usr/local/tomcat/webapps/*
-COPY target/stackport-v2.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=BUILD_IMAGE stackport/target/stackport-v2.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
-WORKDIR /usr/local/tomcat/
-VOLUME /usr/local/tomcat/webapps
