@@ -1,6 +1,6 @@
 # StackPort (formerly VProfile demo)
 
-Spring MVC lab app for multi-tier deployment practice. Repository folder may still be named `vprofile-project`; the Maven artifact is **`stackport-v2.war`**.
+Spring MVC lab app for multi-tier deployment practice. The Maven artifact is **`stackport-v2.war`**.
 
 # Prerequisites
 

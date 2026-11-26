@@ -1,8 +1,8 @@
 # adding repository and installing nginx		
 apt update
 apt install nginx -y
-cat <<EOT > vproapp
-upstream vproapp {
+cat <<EOT > stackportapp
+upstream stackportapp {
 
  server app01:8080;
 
@@ -14,7 +14,7 @@ server {
 
 location / {
 
-  proxy_pass http://vproapp;
+  proxy_pass http://stackportapp;
 
 }
 
@@ -22,9 +22,9 @@ location / {
 
 EOT
 
-mv vproapp /etc/nginx/sites-available/vproapp
+mv stackportapp /etc/nginx/sites-available/stackportapp
 rm -rf /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/vproapp /etc/nginx/sites-enabled/vproapp
+ln -s /etc/nginx/sites-available/stackportapp /etc/nginx/sites-enabled/stackportapp
 
 #starting nginx service and firewall
 systemctl start nginx
