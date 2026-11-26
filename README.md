@@ -138,7 +138,7 @@ stackport-project/
 ├── ansible/                     # Infrastructure as Code
 │   ├── ansible.cfg
 │   ├── site.yml
-│   ├── vpro-app-setup.yml
+│   ├── stackport-app-setup.yml
 │   ├── tomcat_setup.yml
 │   └── templates/
 │       └── application.j2
@@ -172,8 +172,8 @@ mysql --version    # Should be 8.0+
 
 #### 1. Clone Repository
 ```bash
-git clone https://github.com/hkhcoder/vprofile-project.git
-cd vprofile-project
+git clone https://github.com/suraj-bellur/stackport.git
+cd stackport
 ```
 
 #### 2. Setup Database
@@ -473,8 +473,8 @@ tail -f $CATALINA_HOME/logs/catalina.out
 
 ## Support & Documentation
 
-- **GitHub Repository:** https://github.com/hkhcoder/vprofile-project
-- **Issues:** [GitHub Issues](https://github.com/hkhcoder/vprofile-project/issues)
+- **GitHub Repository:** https://github.com/suraj-bellur/stackport
+- **Issues:** [GitHub Issues](https://github.com/suraj-bellur/stackport/issues)
 - **Wiki:** [Project Documentation]
 - **Changelog:** See Git commit history
 
